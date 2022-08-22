@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build a Random Quote Machine</title>
+    <script>
+        const QUOTEBANK = [
+            {
+                quote: "The only person you are destined to become is the person you decide to be.",
+                author: "Ralph Waldo Emerson"
+
+            }, {
+                quote: "With the possible exception of the equator, everything begins somewhere.",
+                author: "C.S. Lewis"
+
+            }, {
+                quote: "Sell your cleverness and buy bewilderment.",
+                author: "Rumi"
+
+            }, {
+                quote: "Make everything as simple as possible, but not simpler.",
+                author: "Albert Einstein"
+
+            }, {
+                quote: "The secret of getting ahead is getting started.",
+                author: "Mark Twain"
+
+            }];
+
+        window.onload = init;
+        function init() {
+            generateQuote()
+        }
+
+        function generateQuote() {
+            let quoteSize = QUOTEBANK.length;
+            let quoteIndex = Math.floor(Math.random() * quoteSize);
+            let randomQuoteData = QUOTEBANK[quoteIndex];
+
+            let twitterLink = "https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=%22What%E2%80%99s%20money%3F%20A%20man%20is%20a%20success%20if%20he%20gets%20up%20in%20the%20morning%20and%20goes%20to%20bed%20at%20night%20and%20in%20between%20does%20what%20he%20wants%20to%20do.%22%20Bob%20Dylan";
+
+            document.getElementById('tweet-quote').href = twitterLink;
+            document.getElementById('text').innerText = randomQuoteData.quote;
+            document.getElementById('author').innerText = randomQuoteData.author;
+        }
+    </script>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <wrapper id="quote-box">
+                <div class="card">
+                    <div class="card-body">
+                      <p class="card-text"><div id="text"></div></p>
+                      <div id="author"></div>
+                      <button id="new-quote" class="btn btn-success" onClick='generateQuote();'>New Quote</button>
+                      <a href="#" id="tweet-quote" target="_blank" class="btn btn-primary">Tweet Quote</a>
+                    </div>
+                </div>    
+            </wrapper>
+        </div>       
+    </div>
+    
+        
+
+
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
